@@ -24,6 +24,13 @@ jobs:
       run: pip install bifrons
     - name: Bump version with Bifrons
       run: bifrons --title "${{ github.event.release.name }}"
+    - name: Commit version bump
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add version.txt
+        git commit -m "Bump version to $(cat version.txt)" || echo "No changes to commit"
+        git push
     - name: Build package
       run: python -m build
     - name: Publish to PyPI
