@@ -46,7 +46,7 @@ def read_version():
     if not os.path.exists("version.txt"):
         with open("version.txt", "w") as f:
             f.write("0.0.0")
-        print("[versioneerx] versão inicial criada: 0.0.0")
+        print("[bifrons] versão inicial criada: 0.0.0")
         return "0.0.0"
 
     with open("version.txt") as f:
@@ -65,7 +65,7 @@ def process(title: str):
 
     write_version(newv)
 
-    print(f"[versioneerx] versão anterior: {current}")
-    print(f"[versioneerx] nova versão: {newv}")
+    print(f"[bifrons] versão anterior: {current}")
+    print(f"[bifrons] nova versão: {newv}")
 
     return newv
