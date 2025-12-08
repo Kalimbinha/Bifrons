@@ -1,0 +1,19 @@
+[project]
+name = "bifrons"
+version = "1.0.0"
+description = "SemVer automation CLI based on PR title"
+authors = [
+  {name = "Fernando Barreto", email = "kalimbinhaa@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+
+dependencies = []
+
+[project.scripts]
+bifrons = "bifrons.cli:main"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
