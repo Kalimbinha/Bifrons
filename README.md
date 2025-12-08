@@ -1,10 +1,19 @@
 # Bifrons
 
+[![PyPI version](https://img.shields.io/pypi/v/bifrons)](https://pypi.org/project/bifrons/)
+[![Python versions](https://img.shields.io/pypi/pyversions/bifrons)](https://pypi.org/project/bifrons/)
+[![License](https://img.shields.io/github/license/Kalimbinha/Bifrons)](https://github.com/Kalimbinha/Bifrons/blob/main/LICENSE)
+
 CLI para automação de versões SemVer baseada em títulos de PR/commit.
+
+**Repositório**: [https://github.com/Kalimbinha/Bifrons](https://github.com/Kalimbinha/Bifrons)
+
+**Pypi**: [https://pypi.org/project/bifrons/](https://pypi.org/project/bifrons/)    
 
 ## Descrição
 
 O Bifrons analisa o título de uma PR ou commit e incrementa automaticamente a versão seguindo as regras do [Semantic Versioning (SemVer)](https://semver.org/). Ele classifica o título em:
+
 - **patch** (correções): títulos começando com "fix"
 - **minor** (novos recursos): títulos começando com "feat" ou "feature"
 - **major** (mudanças incompatíveis): títulos começando com "breaking", "major" ou contendo "breaking change"
@@ -13,60 +22,70 @@ A versão atual é lida/escrita no arquivo [`version.txt`](version.txt ) no dire
 
 ## Instalação
 
-1. Certifique-se de ter Python 3.8+ instalado.
-2. Clone o repositório e instale em modo editável:
-   ```
-   git clone https://github.com/Kalimbinha/Bifrons.git
-   cd Bifrons
-   pip install -e .
-   ```
+Certifique-se de ter Python 3.8+ instalado.
+
+```bash
+pip install bifrons
+```
 
 ## Uso
 
 Execute o comando com o título da PR/commit:
 
-```
+```bash
 bifrons --title "fix: correção de bug"
 ```
 
 ### Exemplos
 
 - **Patch (correção)**:
-  ```
+
+  ```bash
   bifrons --title "fix: resolve memory leak"
   ```
+
   Saída:
-  ```
+
+  ```text
   [bifrons] versão anterior: 1.0.0
   [bifrons] nova versão: 1.0.1
   ```
 
 - **Minor (novo recurso)**:
-  ```
+
+  ```bash
   bifrons --title "feat: add dark mode"
   ```
+
   Saída:
-  ```
+
+  ```text
   [bifrons] versão anterior: 1.0.1
   [bifrons] nova versão: 1.1.0
   ```
 
 - **Major (mudança incompatível)**:
-  ```
+
+  ```bash
   bifrons --title "breaking: remove deprecated API"
   ```
+
   Saída:
-  ```
+
+  ```text
   [bifrons] versão anterior: 1.1.0
   [bifrons] nova versão: 2.0.0
   ```
 
 - **Título inválido**:
-  ```
+
+  ```bash
   bifrons --title "random title"
   ```
+
   Saída:
-  ```
+
+  ```text
   Erro: Título inválido! Use fix/feat/major
   ```
 
@@ -79,7 +98,8 @@ bifrons --title "fix: correção de bug"
 ## Desenvolvimento
 
 - **Estrutura do Projeto**:
-  ```
+
+  ```text
   Bifrons/
   ├── bifrons/
   │   ├── __init__.py
@@ -95,7 +115,7 @@ bifrons --title "fix: correção de bug"
 
 ## Autor
 
-Fernando Barreto (kalimbinhaa@gmail.com)
+Fernando Barreto
 
 ## Licença
 
