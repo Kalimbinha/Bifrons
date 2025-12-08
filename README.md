@@ -4,119 +4,119 @@
 [![Python versions](https://img.shields.io/pypi/pyversions/bifrons)](https://pypi.org/project/bifrons/)
 [![License](https://img.shields.io/github/license/Kalimbinha/Bifrons)](https://github.com/Kalimbinha/Bifrons/blob/main/LICENSE)
 
-CLI para automação de versões SemVer baseada em títulos de PR/commit.
+CLI tool for automating SemVer versioning based on PR/commit titles.
 
-**Repositório**: [https://github.com/Kalimbinha/Bifrons](https://github.com/Kalimbinha/Bifrons)
+**Repository**: [https://github.com/Kalimbinha/Bifrons](https://github.com/Kalimbinha/Bifrons)
 
-**Pypi**: [https://pypi.org/project/bifrons/](https://pypi.org/project/bifrons/)    
+**PyPI**: [https://pypi.org/project/bifrons/](https://pypi.org/project/bifrons/)
 
-## Descrição
+## Description
 
-O Bifrons analisa o título de uma PR ou commit e incrementa automaticamente a versão seguindo as regras do [Semantic Versioning (SemVer)](https://semver.org/). Ele classifica o título em:
+Bifrons analyzes the title of a PR or commit and automatically increments the version following [Semantic Versioning (SemVer)](https://semver.org/) rules. It classifies the title into:
 
-- **patch** (correções): títulos começando com "fix"
-- **minor** (novos recursos): títulos começando com "feat" ou "feature"
-- **major** (mudanças incompatíveis): títulos começando com "breaking", "major" ou contendo "breaking change"
+- **patch** (fixes): titles starting with "fix"
+- **minor** (new features): titles starting with "feat" or "feature"
+- **major** (breaking changes): titles starting with "breaking", "major", or containing "breaking change"
 
-A versão atual é lida/escrita no arquivo [`version.txt`](version.txt ) no diretório atual.
+The current version is read from and written to the [`version.txt`](version.txt) file in the current directory.
 
-## Instalação
+## Installation
 
-Certifique-se de ter Python 3.8+ instalado.
+Ensure you have Python 3.8+ installed.
 
 ```bash
 pip install bifrons
 ```
 
-## Uso
+## Usage
 
-Execute o comando com o título da PR/commit:
+Run the command with the PR/commit title:
 
 ```bash
-bifrons --title "fix: correção de bug"
+bifrons --title "fix: bug correction"
 ```
 
-### Exemplos
+### Examples
 
-- **Patch (correção)**:
+- **Patch (fix)**:
 
   ```bash
   bifrons --title "fix: resolve memory leak"
   ```
 
-  Saída:
+  Output:
 
   ```text
-  [bifrons] versão anterior: 1.0.0
-  [bifrons] nova versão: 1.0.1
+  [bifrons] previous version: 1.0.0
+  [bifrons] new version: 1.0.1
   ```
 
-- **Minor (novo recurso)**:
+- **Minor (new feature)**:
 
   ```bash
   bifrons --title "feat: add dark mode"
   ```
 
-  Saída:
+  Output:
 
   ```text
-  [bifrons] versão anterior: 1.0.1
-  [bifrons] nova versão: 1.1.0
+  [bifrons] previous version: 1.0.1
+  [bifrons] new version: 1.1.0
   ```
 
-- **Major (mudança incompatível)**:
+- **Major (breaking change)**:
 
   ```bash
   bifrons --title "breaking: remove deprecated API"
   ```
 
-  Saída:
+  Output:
 
   ```text
-  [bifrons] versão anterior: 1.1.0
-  [bifrons] nova versão: 2.0.0
+  [bifrons] previous version: 1.1.0
+  [bifrons] new version: 2.0.0
   ```
 
-- **Título inválido**:
+- **Invalid title**:
 
   ```bash
   bifrons --title "random title"
   ```
 
-  Saída:
+  Output:
 
   ```text
-  Erro: Título inválido! Use fix/feat/major
+  Error: Invalid title! Use fix/feat/major
   ```
 
-### Arquivo de Versão
+### Version File
 
-- O arquivo [`version.txt`](version.txt ) é criado automaticamente se não existir (inicia com `0.0.0`).
-- Ele contém apenas a versão atual (ex.: `1.2.3`).
-- Execute no diretório onde deseja gerenciar a versão.
+- The [`version.txt`](version.txt) file is created automatically if it does not exist (starts with `0.0.0`).
+- It contains only the current version (e.g., `1.2.3`).
+- Run the command in the directory where you want to manage the version.
 
-## Desenvolvimento
+## Development
 
-- **Estrutura do Projeto**:
+- **Project Structure**:
 
   ```text
   Bifrons/
   ├── bifrons/
   │   ├── __init__.py
-  │   ├── cli.py       # Interface de linha de comando
-  │   └── core.py      # Lógica principal
-  ├── pyproject.toml   # Configuração do projeto
-  ├── README.md        # Este arquivo
-  └── version.txt      # Arquivo de versão (gerado)
+  │   ├── cli.py       # Command-line interface
+  │   └── core.py      # Core logic
+  ├── pyproject.toml   # Project configuration
+  ├── README.md        # This file
+  └── version.txt      # Version file (generated)
   ```
 
-- **Testes**: Execute `pytest` para rodar os testes em `tests/`.
-- **Linting**: Use `black bifrons/` para formatar o código.
+- **Testing**: Run `pytest` to execute tests in `tests/`.
+- **Linting**: Use `black bifrons/` to format the code.
 
-## Autor
+## Author
 
 Fernando Barreto
 
-## Licença
+## License
 
-MIT License. Veja o arquivo LICENSE para detalhes.
+MIT License. See the LICENSE file for details.
