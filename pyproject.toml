@@ -11,8 +11,6 @@ license = "MIT"
 
 dependencies = []
 
-[project.scripts]
-bifrons = "bifrons.cli:main"
 
 [build-system]
 requires = ["setuptools"]
